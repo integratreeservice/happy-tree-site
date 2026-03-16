@@ -1,51 +1,101 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Integra Tree Services Design System - Professional, trustworthy, home-feeling */
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 13% 18%;
+    /* Brand Colors - Pine Green & Cream White Theme */
+    --background: 38 19% 95%; /* Cream White #F5F3E7 */
+    --foreground: 0 0% 17%; /* Charcoal #2B2B2B */
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 13% 18%;
+    --card: 38 19% 95%; /* Cream White */
+    --card-foreground: 0 0% 17%; /* Charcoal */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 18%;
+    --popover: 38 19% 95%;
+    --popover-foreground: 0 0% 17%;
 
-    --primary: 149 64% 24%;
-    --primary-foreground: 0 0% 100%;
+    /* Pine Green Primary */
+    --primary: 157 58% 13%; /* Pine Green #0B3D2E */
+    --primary-foreground: 38 19% 95%; /* Cream White */
 
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 220 13% 18%;
+    /* Forest Green Accents */
+    --secondary: 157 51% 24%; /* Forest Green #1E5D46 */
+    --secondary-foreground: 38 19% 95%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    /* Warm Sand Backgrounds */
+    --muted: 38 19% 91%; /* Warm Sand #EDE6D6 */
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 38 92% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 157 51% 24%; /* Forest Green */
+    --accent-foreground: 38 19% 95%;
 
     --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 38 19% 95%;
+
+    --border: 38 19% 85%;
+    --input: 38 19% 88%;
+    --ring: 157 58% 13%; /* Pine Green */
+
+    --radius: 0.75rem;
+
+    /* Hero & Section Backgrounds */
+    --hero-background: 38 19% 95%;
+    --section-background: 38 19% 91%;
+    
+    /* Success & Trust Colors */
+    --success: 142 76% 36%;
+    --success-foreground: 38 19% 95%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(157 58% 13%), hsl(157 51% 24%));
+    --gradient-hero: linear-gradient(135deg, hsl(38 19% 95%), hsl(38 19% 91%));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(157 58% 13% / 0.1);
+    --shadow-card: 0 8px 30px -8px hsl(157 58% 13% / 0.15);
+    --shadow-button: 0 4px 12px -2px hsl(157 58% 13% / 0.2);
+    
+    /* Parallax Effects */
+    --parallax-transform: translateY(var(--parallax-offset, 0));
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 149 64% 24%;
-
-    --radius: 0.5rem;
-
-    --font-display: 'Montserrat', sans-serif;
-    --font-body: 'Inter', sans-serif;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
@@ -57,10 +107,42 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-body);
   }
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+@layer utilities {
+  .parallax-container {
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+  }
+  
+  .parallax-bg {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    will-change: transform;
+  }
+  
+  .parallax-content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .parallax-bg {
+      background-attachment: scroll;
+      transform: none !important;
+    }
   }
 }
