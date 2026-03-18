@@ -110,12 +110,25 @@ const HomeQuoteForm = () => {
     setIsSubmitting(true);
 
     try {
-      // TODO: Replace with your own form submission endpoint.
-      // Example: await fetch('/api/quotes', { method: 'POST', body: JSON.stringify(formData) });
-      // The form data available is: firstName, lastName, service, city, phone, email
+    const response = await fetch("https://formspree.io/f/xdawpngq", {
+  method: "POST",
+  headers: {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    firstName: formData.firstName,
+    lastName: formData.lastName,
+    service: formData.service,
+    city: formData.city,
+    phone: formData.phone,
+    email: formData.email,
+  }),
+});
 
-      // Simulate a brief async operation so the loading state is visible
-      await new Promise(resolve => setTimeout(resolve, 500));
+if (!response.ok) {
+  throw new Error("Form submission failed");
+}
 
       recordSubmission();
       setIsSubmitted(true);
