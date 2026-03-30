@@ -114,13 +114,47 @@ const QuoteForm = () => {
     setIsSubmitting(true);
 
     try {
-      // TODO: Replace with your own form submission endpoint.
-      // Example: await fetch('/api/quotes', { method: 'POST', body: JSON.stringify(formData) });
-      // The form data available is: firstName, lastName, service, city, phone, email
+  const response = await fetch("https://formspree.io/f/xdawpngq", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+    },
+    body: JSON.stringify({
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      service: formData.service,
+      city: formData.city,
+      phone: formData.phone,
+      email: formData.email,
+    }),
+  });
 
-      // Simulate a brief async operation so the loading state is visible
-      await new Promise(resolve => setTimeout(resolve, 500));
+  if (!response.ok) {
+    throw new Error("Form submission failed");
+  }
 
+  (window as any).gtag?.("event", "conversion", {
+    send_to: "AW-16561777245/fW9lCPmcj4wcEN3Uotk9",
+  });
+
+  recordSubmission();
+  setIsSubmitted(true);
+
+  toast({
+    title: "Quote Request Submitted",
+    description: "We'll contact you within the same business day!",
+  });
+} catch (error: any) {
+  console.error("Error submitting quote:", error);
+  toast({
+    title: "Submission Error",
+    description: "There was a problem submitting your quote. Please try again or call us directly.",
+    variant: "destructive",
+  });
+} finally {
+  setIsSubmitting(false);
+}
       recordSubmission();
       setIsSubmitted(true);
       toast({
