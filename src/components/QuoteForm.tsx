@@ -75,103 +75,87 @@ const QuoteForm = () => {
     "Health & Risk Assessment",
     "Other"
   ];
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Check rate limit
-    const rateLimitCheck = checkRateLimit();
-    if (!rateLimitCheck.allowed) {
-      const minutes = Math.ceil(rateLimitCheck.remainingTime! / 60000);
-      toast({
-        title: "Too Many Submissions",
-        description: `Please try again in ${minutes} minute${minutes > 1 ? 's' : ''}. This helps us prevent spam.`,
-        variant: "destructive",
-      });
-      return;
-    }
-    
-    // Validate form data
-    setValidationErrors({});
-    const validationResult = quoteSchema.safeParse(formData);
-    
-    if (!validationResult.success) {
-      const errors: Record<string, string> = {};
-      validationResult.error.errors.forEach((err) => {
-        if (err.path[0]) {
-          errors[err.path[0].toString()] = err.message;
-        }
-      });
-      setValidationErrors(errors);
-      toast({
-        title: "Please Fix Errors",
-        description: "Some fields have errors. Please check the form.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-  const response = await fetch("https://formspree.io/f/xdawpngq", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json",
-    },
-    body: JSON.stringify({
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      service: formData.service,
-      city: formData.city,
-      phone: formData.phone,
-      email: formData.email,
-    }),
-  });
-
-  if (!response.ok) {
-    throw new Error("Form submission failed");
+  // Check rate limit
+  const rateLimitCheck = checkRateLimit();
+  if (!rateLimitCheck.allowed) {
+    const minutes = Math.ceil(rateLimitCheck.remainingTime! / 60000);
+    toast({
+      title: "Too Many Submissions",
+      description: `Please try again in ${minutes} minute${minutes > 1 ? "s" : ""}. This helps us prevent spam.`,
+      variant: "destructive",
+    });
+    return;
   }
 
-  (window as any).gtag?.("event", "conversion", {
-    send_to: "AW-16561777245/fW9lCPmcj4wcEN3Uotk9",
-  });
+  // Validate form data
+  setValidationErrors({});
+  const validationResult = quoteSchema.safeParse(formData);
 
-  recordSubmission();
-  setIsSubmitted(true);
+  if (!validationResult.success) {
+    const errors: Record<string, string> = {};
+    validationResult.error.errors.forEach((err) => {
+      if (err.path[0]) {
+        errors[err.path[0].toString()] = err.message;
+      }
+    });
 
-  toast({
-    title: "Quote Request Submitted",
-    description: "We'll contact you within the same business day!",
-  });
-} catch (error: any) {
-  console.error("Error submitting quote:", error);
-  toast({
-    title: "Submission Error",
-    description: "There was a problem submitting your quote. Please try again or call us directly.",
-    variant: "destructive",
-  });
-} finally {
-  setIsSubmitting(false);
-}
-      recordSubmission();
-      setIsSubmitted(true);
-      toast({
-        title: "Quote Request Submitted",
-        description: "We'll contact you within the same business day!",
-      });
-    } catch (error: any) {
-      console.error("Error submitting quote:", error);
-      toast({
-        title: "Submission Error",
-        description: "There was a problem submitting your quote. Please try again or call us directly.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
+    setValidationErrors(errors);
+    toast({
+      title: "Please Fix Errors",
+      description: "Some fields have errors. Please check the form.",
+      variant: "destructive",
+    });
+    return;
+  }
+
+  setIsSubmitting(true);
+
+  try {
+    const response = await fetch("https://formspree.io/f/xdawpngq", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        service: formData.service,
+        city: formData.city,
+        phone: formData.phone,
+        email: formData.email,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Form submission failed");
     }
-  };
+
+    (window as any).gtag?.("event", "conversion", {
+      send_to: "AW-16561777245/fW9lCPmcj4wcEN3Uotk9",
+    });
+
+    recordSubmission();
+    setIsSubmitted(true);
+
+    toast({
+      title: "Quote Request Submitted",
+      description: "We'll contact you within the same business day!",
+    });
+  } catch (error) {
+    console.error("Error submitting quote:", error);
+    toast({
+      title: "Submission Error",
+      description: "There was a problem submitting your quote. Please try again or call us directly.",
+      variant: "destructive",
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   if (isSubmitted) {
     return (
