@@ -134,17 +134,21 @@ const handleSubmit = async (e: React.FormEvent) => {
   throw new Error("Form submission failed");
 }
 
-console.log("🔥 CONVERSION FIRING");
-
-const gtag = (window as any).gtag;
-
-if (typeof gtag === "function") {
-  gtag("event", "conversion", {
-    send_to: "AW-16561777245/fW9lCPmcj4wcEN3Uotk9",
-  });
-} else {
-  console.log("❌ gtag NOT LOADED");
+if (!response.ok) {
+  throw new Error("Form submission failed");
 }
+
+(window as any).gtag?.("event", "conversion", {
+  send_to: "AW-16561777245/fW9lCPmcj4wcEN3Uotk9",
+});
+
+recordSubmission();
+setIsSubmitted(true);
+
+toast({
+  title: "Quote Request Submitted",
+  description: "We'll contact you within the same business day!",
+});
 
 recordSubmission();
 setIsSubmitted(true);
