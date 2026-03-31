@@ -131,20 +131,29 @@ const handleSubmit = async (e: React.FormEvent) => {
     });
 
     if (!response.ok) {
-      throw new Error("Form submission failed");
-    }
+  throw new Error("Form submission failed");
+}
 
-    (window as any).gtag?.("event", "conversion", {
-      send_to: "AW-16561777245/fW9lCPmcj4wcEN3Uotk9",
-    });
+console.log("🔥 CONVERSION FIRING");
 
-    recordSubmission();
-    setIsSubmitted(true);
+const gtag = (window as any).gtag;
 
-    toast({
-      title: "Quote Request Submitted",
-      description: "We'll contact you within the same business day!",
-    });
+if (typeof gtag === "function") {
+  gtag("event", "conversion", {
+    send_to: "AW-16561777245/fW9lCPmcj4wcEN3Uotk9",
+  });
+} else {
+  console.log("❌ gtag NOT LOADED");
+}
+
+recordSubmission();
+setIsSubmitted(true);
+
+toast({
+  title: "Quote Request Submitted",
+  description: "We'll contact you within the same business day!",
+});
+
   } catch (error) {
     console.error("Error submitting quote:", error);
     toast({
