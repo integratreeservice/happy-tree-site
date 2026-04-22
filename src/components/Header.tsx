@@ -20,7 +20,7 @@ const Header = () => {
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
-          <img src="/lovable-uploads/92ba23b6-a289-4264-ae60-f2985fa8e08c.png" alt="Integra Tree Services Logo" className="h-8 w-auto" />
+          <img src="/lovable-uploads/92ba23b6-a289-4264-ae60-f2985fa8e08c.png" alt="Integra Tree Services" className="h-8 w-auto" />
           
         </Link>
 
