@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="space-y-4">
             <img 
               src="/lovable-uploads/07200f5d-757d-4f85-8683-68ba4c9727e2.png" 
-              alt="Integra Tree Services Logo" 
+              alt="Integra Tree Services" 
               className="h-12 w-auto object-contain"
             />
             <p className="text-primary-foreground/80 text-sm">
