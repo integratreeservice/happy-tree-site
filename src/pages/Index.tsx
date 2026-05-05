@@ -63,7 +63,7 @@ const Index = () => {
               <div className="flex justify-center md:justify-start">
                 <img src="/lovable-uploads/07200f5d-757d-4f85-8683-68ba4c9727e2.png" alt="Integra Tree Services" className="h-16 md:h-20 w-auto object-contain" />
               </div>
-              <h1 className="font-serif text-2xl md:text-3xl font-bold text-primary-foreground text-center md:text-left leading-tight">All Your Tree Service Needs Under One Canpoy
+              <h1 className="font-serif text-2xl md:text-3xl font-bold text-primary-foreground text-center md:text-left leading-tight">Certified Tree Service in Surrey, White Rock & the Lower Mainland
 
 
 
@@ -88,7 +88,9 @@ const Index = () => {
                 <div className="flex justify-start">
                   <img src="/lovable-uploads/07200f5d-757d-4f85-8683-68ba4c9727e2.png" alt="Integra Tree Services" className="h-20 w-auto object-contain" />
                 </div>
-                <h1 className="font-serif text-3xl font-bold text-primary-foreground leading-tight md:text-4xl">​Fill Out The Form For a Free Estimate                    </h1>
+                <h1 className="font-serif text-3xl font-bold text-primary-foreground leading-tight md:text-4xl">
+                Certified Arborist Tree Service in Surrey & the Lower Mainland
+                </h1>
                 <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed">
                   Dangerous Tree Removals • Pruning & Vista Pruning • Hedge Trimming • Tree Planting • Risk Assessments
                 </p>

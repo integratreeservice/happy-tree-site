@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const Footer = () => {
-  const quickLinks = [
-    { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Tree Resources", href: "/resources" },
-    { name: "Get a Quote", href: "/quote" },
-  ];
+ const quickLinks = [
+  { name: "Home", href: "/" },
+  { name: "About Us", href: "/about" },
+  { name: "Get a Quote", href: "/quote" },
+];
 
   const serviceAreas = [
     "Vancouver", "Burnaby", "Richmond", "Surrey", "Delta", "Langley",
@@ -26,7 +25,7 @@ const Footer = () => {
               className="h-12 w-auto object-contain"
             />
             <p className="text-primary-foreground/80 text-sm">
-              Integrity in every cut. Professional tree care services that feel like home.
+            Integra Tree Service provides certified arborist tree removal, pruning, hedge trimming, and emergency tree service across Surrey, White Rock, Delta, Richmond, Langley, and the Lower Mainland.
             </p>
           </div>
 
@@ -80,17 +79,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-primary-foreground/80">
-          <p>&copy; 2024 Integra Tree Services. All rights reserved.</p>
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link to="/privacy" className="hover:text-primary-foreground transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="hover:text-primary-foreground transition-colors">
-              Terms of Service
-            </Link>
-          </div>
-        </div>
+        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm text-primary-foreground/80">
+         <p>&copy; 2024 Integra Tree Services. All rights reserved.</p>
+         </div>
 
         <div className="mt-4 text-xs text-primary-foreground/60 text-center space-y-1">
           <div>Licensed & Insured • ISA-Certified Arborists • WCB Coverage</div>
