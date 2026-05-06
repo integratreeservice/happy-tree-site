@@ -1,8 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import SocialMediaSection from "@/components/SocialMediaSection";
+import SEO from "@/components/SEO";
 const About = () => {
   return <div className="py-12">
+    <SEO
+  title="About Integra Tree Service | Certified Arborists in Surrey & Lower Mainland"
+  description="Learn about Integra Tree Service, a father-and-son certified arborist team serving Surrey, White Rock, Delta, Richmond, Langley, and the Lower Mainland."
+  canonicalPath="/about"
+  />
       <div className="container">
         {/* Hero Section */}
         <div className="text-center max-w-3xl mx-auto mb-16">

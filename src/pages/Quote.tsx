@@ -1,4 +1,5 @@
 import QuoteForm from "@/components/QuoteForm";
+import SEO from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, Clock, CheckCircle, Shield, Award } from "lucide-react";
 const Quote = () => {
@@ -16,6 +17,11 @@ const Quote = () => {
     description: "Professional tree health assessment and safety recommendations from experienced experts."
   }];
   return <div className="py-12">
+  <SEO
+    title="Free Tree Service Estimate | Integra Tree Service"
+    description="Request a free tree service estimate from Integra Tree Service for tree removal, pruning, hedge trimming, risk assessments, and emergency tree service in Surrey and the Lower Mainland."
+    canonicalPath="/quote"
+  />
       <div className="container">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">

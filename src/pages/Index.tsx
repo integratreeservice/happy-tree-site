@@ -9,6 +9,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import ReviewCard from "@/components/ReviewCard";
 import { Phone, Shield, Award, Users, Scissors, TreePine, Zap, Search, AlertTriangle, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import heroImage from "@/assets/hero-tree-service.jpg";
 const Index = () => {
   const services = [{
@@ -45,6 +46,11 @@ const Index = () => {
     answer: "Yes—complete cleanup is included. We remove all brush, logs, and wood chips, or can chip materials on-site for your garden if preferred."
   }];
   return <div>
+  <SEO
+    title="Integra Tree Services | Tree Removal in Surrey, Delta, Richmond & Langley"
+    description="Professional tree removal, trimming and arborist services in Surrey, Delta, Richmond and Langley. Licensed and insured tree care experts with health assessments. Free estimates. Call 604-968-9997."
+    canonicalPath="/"
+  />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center py-12">
         {/* Background Image */}
