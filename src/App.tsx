@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import { MobileCallButton } from "./components/MobileCallButton";
 import Index from "./pages/Index";
 import About from "./pages/About";
+import TreeRemovalSurrey from "./pages/TreeRemovalSurrey";
+import EmergencyTreeService from "./pages/EmergencyTreeService";
 // import Resources from "./pages/Resources"; // Temporarily hidden - page content incomplete
 
 import Quote from "./pages/Quote";
@@ -42,6 +44,8 @@ const App = () => (
               {/* <Route path="/resources" element={<Resources />} /> */}
               {/* Resources page temporarily hidden - content incomplete, will be restored later */}
               <Route path="/quote" element={<Quote />} />
+              <Route path="/tree-removal-surrey" element={<TreeRemovalSurrey />} />
+              <Route path="/emergency-tree-service" element={<EmergencyTreeService />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
