@@ -2,11 +2,15 @@ import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const Footer = () => {
- const quickLinks = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/about" },
-  { name: "Get a Quote", href: "/quote" },
-];
+  const quickLinks = [
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Tree Removal Surrey", href: "/tree-removal-surrey" },
+    { name: "Emergency Tree Service", href: "/emergency-tree-service" },
+    { name: "Arborist Surrey", href: "/arborist-surrey" },
+    { name: "Tree Pruning Surrey", href: "/tree-pruning-surrey" },
+    { name: "Get a Quote", href: "/quote" },
+  ];
 
   const serviceAreas = [
     "Vancouver", "Burnaby", "Richmond", "Surrey", "Delta", "Langley",
