@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import { trackLead } from "@/lib/trackLead";
 
 // Validation schema
 const quoteSchema = z.object({
@@ -26,18 +27,18 @@ const TIME_WINDOW = 60 * 60 * 1000; // 1 hour
 const checkRateLimit = (): { allowed: boolean; remainingTime?: number } => {
   const stored = localStorage.getItem(RATE_LIMIT_KEY);
   const now = Date.now();
-  
+
   if (!stored) return { allowed: true };
-  
+
   const submissions = JSON.parse(stored) as number[];
   const recentSubmissions = submissions.filter(time => now - time < TIME_WINDOW);
-  
+
   if (recentSubmissions.length >= MAX_SUBMISSIONS) {
     const oldestSubmission = Math.min(...recentSubmissions);
     const remainingTime = TIME_WINDOW - (now - oldestSubmission);
     return { allowed: false, remainingTime };
   }
-  
+
   return { allowed: true };
 };
 
@@ -76,7 +77,7 @@ const HomeQuoteForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const rateLimitCheck = checkRateLimit();
     if (!rateLimitCheck.allowed) {
       const minutes = Math.ceil(rateLimitCheck.remainingTime! / 60000);
@@ -87,10 +88,10 @@ const HomeQuoteForm = () => {
       });
       return;
     }
-    
+
     setValidationErrors({});
     const validationResult = quoteSchema.safeParse(formData);
-    
+
     if (!validationResult.success) {
       const errors: Record<string, string> = {};
       validationResult.error.errors.forEach((err) => {
@@ -110,25 +111,28 @@ const HomeQuoteForm = () => {
     setIsSubmitting(true);
 
     try {
-    const response = await fetch("https://formspree.io/f/xdawpngq", {
-  method: "POST",
-  headers: {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    firstName: formData.firstName,
-    lastName: formData.lastName,
-    service: formData.service,
-    city: formData.city,
-    phone: formData.phone,
-    email: formData.email,
-  }),
-});
+      const response = await fetch("https://formspree.io/f/xdawpngq", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          service: formData.service,
+          city: formData.city,
+          phone: formData.phone,
+          email: formData.email,
+        }),
+      });
 
-if (!response.ok) {
-  throw new Error("Form submission failed");
-}
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      // Fire Google Ads conversion + GA4 lead event ONLY on a real successful submit
+      trackLead({ service: formData.service, city: formData.city, source: "home_hero" });
 
       recordSubmission();
       setIsSubmitted(true);
@@ -227,8 +231,8 @@ if (!response.ok) {
               {validationErrors.service && (
                 <p className="text-sm text-destructive">{validationErrors.service}</p>
               )}
-              <Select 
-                value={formData.service} 
+              <Select
+                value={formData.service}
                 onValueChange={(value) => {
                   setFormData(prev => ({ ...prev, service: value }));
                   if (validationErrors.service) {

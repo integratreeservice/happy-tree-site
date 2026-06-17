@@ -5,9 +5,9 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle } from "lucide-react";
-
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import { trackLead } from "@/lib/trackLead";
 
 // Validation schema
 const quoteSchema = z.object({
@@ -28,18 +28,18 @@ const TIME_WINDOW = 60 * 60 * 1000; // 1 hour
 const checkRateLimit = (): { allowed: boolean; remainingTime?: number } => {
   const stored = localStorage.getItem(RATE_LIMIT_KEY);
   const now = Date.now();
-  
+
   if (!stored) return { allowed: true };
-  
+
   const submissions = JSON.parse(stored) as number[];
   const recentSubmissions = submissions.filter(time => now - time < TIME_WINDOW);
-  
+
   if (recentSubmissions.length >= MAX_SUBMISSIONS) {
     const oldestSubmission = Math.min(...recentSubmissions);
     const remainingTime = TIME_WINDOW - (now - oldestSubmission);
     return { allowed: false, remainingTime };
   }
-  
+
   return { allowed: true };
 };
 
@@ -75,100 +75,87 @@ const QuoteForm = () => {
     "Health & Risk Assessment",
     "Other"
   ];
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
 
-  // Check rate limit
-  const rateLimitCheck = checkRateLimit();
-  if (!rateLimitCheck.allowed) {
-    const minutes = Math.ceil(rateLimitCheck.remainingTime! / 60000);
-    toast({
-      title: "Too Many Submissions",
-      description: `Please try again in ${minutes} minute${minutes > 1 ? "s" : ""}. This helps us prevent spam.`,
-      variant: "destructive",
-    });
-    return;
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  // Validate form data
-  setValidationErrors({});
-  const validationResult = quoteSchema.safeParse(formData);
+    // Check rate limit
+    const rateLimitCheck = checkRateLimit();
+    if (!rateLimitCheck.allowed) {
+      const minutes = Math.ceil(rateLimitCheck.remainingTime! / 60000);
+      toast({
+        title: "Too Many Submissions",
+        description: `Please try again in ${minutes} minute${minutes > 1 ? "s" : ""}. This helps us prevent spam.`,
+        variant: "destructive",
+      });
+      return;
+    }
 
-  if (!validationResult.success) {
-    const errors: Record<string, string> = {};
-    validationResult.error.errors.forEach((err) => {
-      if (err.path[0]) {
-        errors[err.path[0].toString()] = err.message;
+    // Validate form data
+    setValidationErrors({});
+    const validationResult = quoteSchema.safeParse(formData);
+
+    if (!validationResult.success) {
+      const errors: Record<string, string> = {};
+      validationResult.error.errors.forEach((err) => {
+        if (err.path[0]) {
+          errors[err.path[0].toString()] = err.message;
+        }
+      });
+
+      setValidationErrors(errors);
+      toast({
+        title: "Please Fix Errors",
+        description: "Some fields have errors. Please check the form.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xdawpngq", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          service: formData.service,
+          city: formData.city,
+          phone: formData.phone,
+          email: formData.email,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
       }
-    });
 
-    setValidationErrors(errors);
-    toast({
-      title: "Please Fix Errors",
-      description: "Some fields have errors. Please check the form.",
-      variant: "destructive",
-    });
-    return;
-  }
+      // Fire Google Ads conversion + GA4 lead event ONLY on a real successful submit
+      trackLead({ service: formData.service, city: formData.city, source: "contact_page" });
 
-  setIsSubmitting(true);
+      recordSubmission();
+      setIsSubmitted(true);
 
-  try {
-    const response = await fetch("https://formspree.io/f/xdawpngq", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-      },
-      body: JSON.stringify({
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        service: formData.service,
-        city: formData.city,
-        phone: formData.phone,
-        email: formData.email,
-      }),
-    });
-
-    if (!response.ok) {
-  throw new Error("Form submission failed");
-}
-
-if (!response.ok) {
-  throw new Error("Form submission failed");
-}
-
-(window as any).gtag?.("event", "conversion", {
-  send_to: "AW-16561777245/fW9lCPmcj4wcEN3Uotk9",
-});
-
-recordSubmission();
-setIsSubmitted(true);
-
-toast({
-  title: "Quote Request Submitted",
-  description: "We'll contact you within the same business day!",
-});
-
-recordSubmission();
-setIsSubmitted(true);
-
-toast({
-  title: "Quote Request Submitted",
-  description: "We'll contact you within the same business day!",
-});
-
-  } catch (error) {
-    console.error("Error submitting quote:", error);
-    toast({
-      title: "Submission Error",
-      description: "There was a problem submitting your quote. Please try again or call us directly.",
-      variant: "destructive",
-    });
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+      toast({
+        title: "Quote Request Submitted",
+        description: "We'll contact you within the same business day!",
+      });
+    } catch (error) {
+      console.error("Error submitting quote:", error);
+      toast({
+        title: "Submission Error",
+        description: "There was a problem submitting your quote. Please try again or call us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   if (isSubmitted) {
     return (
@@ -263,8 +250,8 @@ toast({
                   {validationErrors.service && (
                     <p className="text-sm text-destructive">{validationErrors.service}</p>
                   )}
-                  <Select 
-                    value={formData.service} 
+                  <Select
+                    value={formData.service}
                     onValueChange={(value) => {
                       setFormData(prev => ({ ...prev, service: value }));
                       if (validationErrors.service) {
