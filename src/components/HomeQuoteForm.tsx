@@ -10,12 +10,10 @@ import { trackLead } from "@/lib/trackLead";
 
 // Validation schema
 const quoteSchema = z.object({
-  firstName: z.string().trim().min(2, "First name must be at least 2 characters").max(50, "First name is too long"),
-  lastName: z.string().trim().min(2, "Last name must be at least 2 characters").max(50, "Last name is too long"),
+  name: z.string().trim().min(2, "Please enter your name").max(80, "Name is too long"),
   service: z.string().min(1, "Please select a service"),
-  city: z.string().trim().min(2, "City must be at least 2 characters").max(100, "City name is too long"),
   phone: z.string().trim().regex(/^[\d\s()+-]+$/, "Please enter a valid phone number").min(10, "Phone number is too short").max(20, "Phone number is too long"),
-  email: z.string().trim().email("Please enter a valid email").max(255, "Email is too long"),
+  details: z.string().trim().max(1000, "Please keep details under 1000 characters").optional(),
   honeypot: z.string().max(0, "Invalid submission"),
 });
 
@@ -53,12 +51,10 @@ const recordSubmission = () => {
 
 const HomeQuoteForm = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     service: "",
-    city: "",
     phone: "",
-    email: "",
+    details: "",
     honeypot: "",
   });
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
@@ -118,12 +114,10 @@ const HomeQuoteForm = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          firstName: formData.firstName,
-          lastName: formData.lastName,
+          name: formData.name,
           service: formData.service,
-          city: formData.city,
           phone: formData.phone,
-          email: formData.email,
+          details: formData.details,
         }),
       });
 
@@ -132,7 +126,7 @@ const HomeQuoteForm = () => {
       }
 
       // Fire Google Ads conversion + GA4 lead event ONLY on a real successful submit
-      trackLead({ service: formData.service, city: formData.city, source: "home_hero" });
+      trackLead({ service: formData.service, city: "", source: "home_hero" });
 
       recordSubmission();
       setIsSubmitted(true);
@@ -163,7 +157,7 @@ const HomeQuoteForm = () => {
             Thank you for your request!
           </h3>
           <p className="text-muted-foreground">
-            We'll call you back within the same business day to discuss your project.
+            We'll call or text you back within the same business day to discuss your project.
           </p>
         </div>
       </div>
@@ -186,132 +180,95 @@ const HomeQuoteForm = () => {
         />
 
         <div className="space-y-4">
-          {/* Name Fields */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="home-firstName">First Name *</Label>
-              {validationErrors.firstName && (
-                <p className="text-sm text-destructive">{validationErrors.firstName}</p>
-              )}
-              <Input
-                id="home-firstName"
-                value={formData.firstName}
-                onChange={(e) => {
-                  setFormData(prev => ({ ...prev, firstName: e.target.value }));
-                  if (validationErrors.firstName) {
-                    setValidationErrors(prev => ({ ...prev, firstName: "" }));
-                  }
-                }}
-                required
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="home-lastName">Last Name *</Label>
-              {validationErrors.lastName && (
-                <p className="text-sm text-destructive">{validationErrors.lastName}</p>
-              )}
-              <Input
-                id="home-lastName"
-                value={formData.lastName}
-                onChange={(e) => {
-                  setFormData(prev => ({ ...prev, lastName: e.target.value }));
-                  if (validationErrors.lastName) {
-                    setValidationErrors(prev => ({ ...prev, lastName: "" }));
-                  }
-                }}
-                required
-              />
-            </div>
+          {/* Name */}
+          <div className="space-y-2">
+            <Label htmlFor="home-name">Name *</Label>
+            {validationErrors.name && (
+              <p className="text-sm text-destructive">{validationErrors.name}</p>
+            )}
+            <Input
+              id="home-name"
+              value={formData.name}
+              onChange={(e) => {
+                setFormData(prev => ({ ...prev, name: e.target.value }));
+                if (validationErrors.name) {
+                  setValidationErrors(prev => ({ ...prev, name: "" }));
+                }
+              }}
+              placeholder="Your name"
+              required
+            />
           </div>
 
-          {/* Service and City */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label>Service Needed *</Label>
-              {validationErrors.service && (
-                <p className="text-sm text-destructive">{validationErrors.service}</p>
-              )}
-              <Select
-                value={formData.service}
-                onValueChange={(value) => {
-                  setFormData(prev => ({ ...prev, service: value }));
-                  if (validationErrors.service) {
-                    setValidationErrors(prev => ({ ...prev, service: "" }));
-                  }
-                }}
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="Select a service" />
-                </SelectTrigger>
-                <SelectContent>
-                  {services.map((service) => (
-                    <SelectItem key={service} value={service}>
-                      {service}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="home-city">City *</Label>
-              {validationErrors.city && (
-                <p className="text-sm text-destructive">{validationErrors.city}</p>
-              )}
-              <Input
-                id="home-city"
-                value={formData.city}
-                onChange={(e) => {
-                  setFormData(prev => ({ ...prev, city: e.target.value }));
-                  if (validationErrors.city) {
-                    setValidationErrors(prev => ({ ...prev, city: "" }));
-                  }
-                }}
-                placeholder="Vancouver"
-                required
-              />
-            </div>
+          {/* Phone */}
+          <div className="space-y-2">
+            <Label htmlFor="home-phone">Phone Number *</Label>
+            {validationErrors.phone && (
+              <p className="text-sm text-destructive">{validationErrors.phone}</p>
+            )}
+            <Input
+              id="home-phone"
+              type="tel"
+              value={formData.phone}
+              onChange={(e) => {
+                setFormData(prev => ({ ...prev, phone: e.target.value }));
+                if (validationErrors.phone) {
+                  setValidationErrors(prev => ({ ...prev, phone: "" }));
+                }
+              }}
+              placeholder="(604) 555-1234"
+              required
+            />
           </div>
 
-          {/* Contact Information */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="home-phone">Phone Number *</Label>
-              {validationErrors.phone && (
-                <p className="text-sm text-destructive">{validationErrors.phone}</p>
-              )}
-              <Input
-                id="home-phone"
-                type="tel"
-                value={formData.phone}
-                onChange={(e) => {
-                  setFormData(prev => ({ ...prev, phone: e.target.value }));
-                  if (validationErrors.phone) {
-                    setValidationErrors(prev => ({ ...prev, phone: "" }));
-                  }
-                }}
-                placeholder="(604) 555-1234"
-                required
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="home-email">Email Address *</Label>
-              {validationErrors.email && (
-                <p className="text-sm text-destructive">{validationErrors.email}</p>
-              )}
-              <Input
-                id="home-email"
-                type="email"
-                value={formData.email}
-                onChange={(e) => {
-                  setFormData(prev => ({ ...prev, email: e.target.value }));
-                  if (validationErrors.email) {
-                    setValidationErrors(prev => ({ ...prev, email: "" }));
-                  }
-                }}
-                required
-              />
-            </div>
+          {/* Service */}
+          <div className="space-y-2">
+            <Label>Service Needed *</Label>
+            {validationErrors.service && (
+              <p className="text-sm text-destructive">{validationErrors.service}</p>
+            )}
+            <Select
+              value={formData.service}
+              onValueChange={(value) => {
+                setFormData(prev => ({ ...prev, service: value }));
+                if (validationErrors.service) {
+                  setValidationErrors(prev => ({ ...prev, service: "" }));
+                }
+              }}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select a service" />
+              </SelectTrigger>
+              <SelectContent>
+                {services.map((service) => (
+                  <SelectItem key={service} value={service}>
+                    {service}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Details (optional) */}
+          <div className="space-y-2">
+            <Label htmlFor="home-details">
+              Project Details <span className="text-muted-foreground font-normal">(optional)</span>
+            </Label>
+            {validationErrors.details && (
+              <p className="text-sm text-destructive">{validationErrors.details}</p>
+            )}
+            <textarea
+              id="home-details"
+              value={formData.details}
+              onChange={(e) => {
+                setFormData(prev => ({ ...prev, details: e.target.value }));
+                if (validationErrors.details) {
+                  setValidationErrors(prev => ({ ...prev, details: "" }));
+                }
+              }}
+              placeholder="Tell us a bit about the job — e.g. one large maple to remove, leaning over the garage."
+              className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            />
           </div>
 
           <Button
@@ -321,6 +278,11 @@ const HomeQuoteForm = () => {
           >
             {isSubmitting ? "Submitting..." : "Get My Free Quote"}
           </Button>
+
+          <p className="text-center text-xs text-muted-foreground">
+            Prefer to talk? Call or text{" "}
+            <a href="tel:604-968-9997" className="text-primary font-medium hover:underline">604-968-9997</a>
+          </p>
         </div>
       </form>
     </div>
