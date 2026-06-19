@@ -13,8 +13,8 @@ const Footer = () => {
   ];
 
   const serviceAreas = [
-    "Vancouver", "Burnaby", "Richmond", "Surrey", "Delta", "Langley",
-    "Coquitlam", "Port Coquitlam", "North Vancouver", "West Vancouver"
+    "Surrey", "South Surrey", "White Rock", "Delta", "Tsawwassen",
+    "Langley", "Coquitlam", "Port Coquitlam"
   ];
 
   return (
@@ -29,7 +29,7 @@ const Footer = () => {
               className="h-12 w-auto object-contain"
             />
             <p className="text-primary-foreground/80 text-sm">
-            Integra Tree Service provides certified arborist tree removal, pruning, hedge trimming, and emergency tree service across Surrey, White Rock, Delta, Richmond, Langley, and the Lower Mainland.
+            Integra Tree Service provides certified arborist tree removal, pruning, hedge trimming, and emergency tree service across Surrey, White Rock, Delta, Langley, and the Lower Mainland.
             </p>
           </div>
 
