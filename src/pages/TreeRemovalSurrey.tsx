@@ -60,7 +60,7 @@ const TreeRemovalSurrey = () => {
             Tree removal service area
           </h2>
           <p>
-            We provide tree removal in Surrey, White Rock, Delta, Richmond, Langley, and nearby Lower Mainland communities.
+            We provide tree removal in Surrey, White Rock, Delta, Langley, and nearby Lower Mainland communities.
           </p>
         </div>
 

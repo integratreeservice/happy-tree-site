@@ -6,7 +6,7 @@ const About = () => {
   return <div className="py-12">
     <SEO
   title="About Integra Tree Service | Certified Arborists in Surrey & Lower Mainland"
-  description="Learn about Integra Tree Service, a father-and-son certified arborist team serving Surrey, White Rock, Delta, Richmond, Langley, and the Lower Mainland."
+  description="Learn about Integra Tree Service, a father-and-son certified arborist team serving Surrey, White Rock, Delta, Langley, and the Lower Mainland."
   canonicalPath="/about"
   />
       <div className="container">
@@ -15,7 +15,7 @@ const About = () => {
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">About Integra Tree Service</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
             Your trusted local tree care company. Father and son certified arborists with over 15 years of experience 
-            providing safe, reliable tree service to families across Surrey, Delta, Richmond, and Langley.
+            providing safe, reliable tree service to families across Surrey, Delta, White Rock, and Langley.
           </p>
         </div>
 

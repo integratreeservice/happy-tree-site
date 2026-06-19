@@ -58,7 +58,7 @@ const Resources = () => {
                   Learn From Trusted Local Tree Experts
                 </h2>
                 <p className="text-sm md:text-lg opacity-90 mb-4 md:mb-6 leading-relaxed">
-                  Professional advice from certified arborists serving Surrey, Delta, Richmond, and Langley for over 15 years
+                  Professional advice from certified arborists serving Surrey, Delta, White Rock, and Langley for over 15 years
                 </p>
                 <Button size="lg" variant="secondary" className="font-medium text-sm md:text-base">
                   Explore Tree Care Guides

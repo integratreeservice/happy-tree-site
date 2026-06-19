@@ -25,7 +25,7 @@ const ServiceLandingPage = ({
   intro,
   bullets,
   sections,
-  serviceAreas = "Surrey, South Surrey, White Rock, Delta, Langley, Burnaby, Coquitlam, and the Lower Mainland",
+  serviceAreas = "Surrey, South Surrey, White Rock, Delta, Langley, Coquitlam, and the Lower Mainland",
 }: ServiceLandingPageProps) => {
   return (
     <div className="py-12">
@@ -58,7 +58,7 @@ const ServiceLandingPage = ({
             <TreePine className="h-8 w-8 text-primary mb-3" />
             <h2 className="font-semibold text-lg mb-2">Local Tree Service</h2>
             <p className="text-sm text-muted-foreground">
-              Serving Surrey, White Rock, Delta, Langley, Burnaby, Coquitlam, and nearby areas.
+              Serving Surrey, White Rock, Delta, Langley, Coquitlam, and nearby areas.
             </p>
           </div>
 

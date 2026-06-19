@@ -60,7 +60,7 @@ const EmergencyTreeService = () => {
             Emergency service area
           </h2>
           <p>
-            We provide emergency tree service in Surrey, White Rock, Delta, Richmond, Langley, and nearby Lower Mainland communities.
+            We provide emergency tree service in Surrey, White Rock, Delta, Langley, and nearby Lower Mainland communities.
           </p>
         </div>
 
