@@ -17,6 +17,12 @@ const Header = () => {
   }];
   const isActive = (href: string) => location.pathname === href;
   return <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      {/* Always-visible call/text bar - tappable on every screen size, fixes phone being hidden on mobile */}
+      <a href="tel:604-968-9997" className="flex w-full items-center justify-center gap-2 bg-primary py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90">
+        <Phone className="h-4 w-4" />
+        <span>Call or text for a free quote: <span className="font-semibold">604-968-9997</span></span>
+      </a>
+
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
