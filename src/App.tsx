@@ -12,6 +12,9 @@ import About from "./pages/About";
 import TreeRemovalSurrey from "./pages/TreeRemovalSurrey";
 import EmergencyTreeService from "./pages/EmergencyTreeService";
 import { ArboristSurrey, TreePruningSurrey } from "./pages/servicePages";
+import HedgeTrimmingSurrey from "./pages/HedgeTrimmingSurrey";
+import LotClearingSurrey from "./pages/LotClearingSurrey";
+import StumpGrindingSurrey from "./pages/StumpGrindingSurrey";
 // import Resources from "./pages/Resources"; // Temporarily hidden - page content incomplete
 
 import Quote from "./pages/Quote";
@@ -49,6 +52,9 @@ const App = () => (
               <Route path="/emergency-tree-service" element={<EmergencyTreeService />} />
               <Route path="/arborist-surrey" element={<ArboristSurrey />} />
               <Route path="/tree-pruning-surrey" element={<TreePruningSurrey />} />
+              <Route path="/hedge-trimming-surrey" element={<HedgeTrimmingSurrey />} />
+              <Route path="/lot-clearing-surrey" element={<LotClearingSurrey />} />
+              <Route path="/stump-grinding-surrey" element={<StumpGrindingSurrey />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
