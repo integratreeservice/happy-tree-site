@@ -11,6 +11,7 @@
  * If your existing service pages use a different route pattern (e.g. /services/...),
  * tell Claude and the paths in all three new pages will be matched to it.
  */
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle2, MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -45,6 +46,12 @@ const faqs = [
 export default function LotClearingSurrey() {
   return (
     <main className="min-h-screen bg-white text-gray-900">
+      <SEO
+        title="Lot Clearing Surrey | Integra Tree Service"
+        description="Lot and land clearing in Surrey, Langley and Delta. Trees, brush and blackberry cleared and hauled — free on-site quotes from a fully insured local crew."
+        canonicalPath="/lot-clearing-surrey"
+      />
+
       {/* Hero */}
       <section className="bg-green-900 px-4 py-16 text-center text-white sm:py-24">
         <h1 className="mx-auto max-w-3xl text-4xl font-bold sm:text-5xl">

@@ -8,6 +8,7 @@
  *    and inside <Routes>:
  *      <Route path="/stump-grinding-surrey" element={<StumpGrindingSurrey />} />
  */
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle2, MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -35,6 +36,12 @@ const faqs = [
 export default function StumpGrindingSurrey() {
   return (
     <main className="min-h-screen bg-white text-gray-900">
+      <SEO
+        title="Stump Grinding Surrey | Integra Tree Service"
+        description="Stump grinding and removal in Surrey and nearby cities. Any size stump, tight access included, ground below grade and ready for lawn or garden. Free quotes."
+        canonicalPath="/stump-grinding-surrey"
+      />
+
       {/* Hero */}
       <section className="bg-green-900 px-4 py-16 text-center text-white sm:py-24">
         <h1 className="mx-auto max-w-3xl text-4xl font-bold sm:text-5xl">

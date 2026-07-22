@@ -8,6 +8,7 @@
  *    and inside <Routes>:
  *      <Route path="/hedge-trimming-surrey" element={<HedgeTrimmingSurrey />} />
  */
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle2, MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -35,6 +36,12 @@ const faqs = [
 export default function HedgeTrimmingSurrey() {
   return (
     <main className="min-h-screen bg-white text-gray-900">
+      <SEO
+        title="Hedge Trimming Surrey | Integra Tree Service"
+        description="Cedar and laurel hedge trimming in Surrey and White Rock. Straight lines, healthy hedges and full cleanup — free quotes from local ISA certified arborists."
+        canonicalPath="/hedge-trimming-surrey"
+      />
+
       {/* Hero */}
       <section className="bg-green-900 px-4 py-16 text-center text-white sm:py-24">
         <h1 className="mx-auto max-w-3xl text-4xl font-bold sm:text-5xl">
