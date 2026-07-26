@@ -106,6 +106,22 @@ export default function LotClearingSurrey() {
         </div>
       </section>
 
+{/* Blackberry & brush removal */}
+      <section className="mx-auto max-w-4xl px-4 py-14">
+        <h2 className="text-2xl font-bold sm:text-3xl">Blackberry &amp; brush removal</h2>
+        <p className="mt-4 text-gray-700">
+          Himalayan blackberry is the Lower Mainland's most stubborn invader — canes that
+          grow metres in a season and root crowns that resprout every time they're mowed.
+          Our blackberry removal digs out the crowns and roots, not just the canes, then
+          hauls every thorny scrap off your property.
+        </p>
+        <p className="mt-4 text-gray-700">
+          We clear blackberry thickets, brush and invasive growth from fence lines, yards,
+          slopes and whole lots across Surrey, Langley and Delta — as a stand-alone job or
+          as part of a larger lot clearing. You're left with clean, workable ground and a
+          plan to keep it that way.
+        </p>
+      </section>
       {/* Process */}
       <section className="mx-auto max-w-4xl px-4 py-14">
         <h2 className="text-2xl font-bold sm:text-3xl">How it works</h2>

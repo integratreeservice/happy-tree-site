@@ -15,6 +15,9 @@ import { ArboristSurrey, TreePruningSurrey } from "./pages/servicePages";
 import HedgeTrimmingSurrey from "./pages/HedgeTrimmingSurrey";
 import LotClearingSurrey from "./pages/LotClearingSurrey";
 import StumpGrindingSurrey from "./pages/StumpGrindingSurrey";
+import TreeServiceWhiteRock from "./pages/TreeServiceWhiteRock";
+import TreeServiceDelta from "./pages/TreeServiceDelta";
+import TreeServiceLangley from "./pages/TreeServiceLangley";
 // import Resources from "./pages/Resources"; // Temporarily hidden - page content incomplete
 
 import Quote from "./pages/Quote";
@@ -55,6 +58,9 @@ const App = () => (
               <Route path="/hedge-trimming-surrey" element={<HedgeTrimmingSurrey />} />
               <Route path="/lot-clearing-surrey" element={<LotClearingSurrey />} />
               <Route path="/stump-grinding-surrey" element={<StumpGrindingSurrey />} />
+              <Route path="/tree-service-white-rock" element={<TreeServiceWhiteRock />} />
+              <Route path="/tree-service-delta" element={<TreeServiceDelta />} />
+              <Route path="/tree-service-langley" element={<TreeServiceLangley />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
