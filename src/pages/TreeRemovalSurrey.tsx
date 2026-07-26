@@ -8,7 +8,7 @@ const TreeRemovalSurrey = () => {
     <div className="py-12">
       <SEO
         title="Tree Removal Surrey | Integra Tree Service"
-        description="Integra Tree Service provides safe tree removal in Surrey and the Lower Mainland. Certified arborists handle hazardous trees, removals, cleanup, and free estimates."
+        description="Safe tree removal in Surrey and the Lower Mainland by certified arborists. Insured, careful crews and free written estimates. Call 604-968-9997."
         canonicalPath="/tree-removal-surrey"
       />
 

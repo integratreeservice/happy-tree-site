@@ -44,8 +44,8 @@ const Index = () => {
   }];
   return <div>
   <SEO
-    title="Integra Tree Services | Tree Removal in Surrey, Delta, White Rock & Langley"
-    description="Professional tree removal, trimming and arborist services in Surrey, Delta, White Rock and Langley. Licensed and insured tree care experts with health assessments. Free estimates. Call 604-968-9997."
+    title="Tree Removal & Arborist Services Surrey BC | Integra Tree"
+    description="Licensed & insured tree removal, pruning & arborist services in Surrey, White Rock, Delta & Langley. Free estimates. Call 604-968-9997."
     canonicalPath="/"
   />
       {/* Hero Section */}
@@ -66,7 +66,7 @@ const Index = () => {
               <div className="flex justify-center md:justify-start">
                 <img loading="lazy" decoding="async" src="/lovable-uploads/07200f5d-757d-4f85-8683-68ba4c9727e2.png" alt="Integra Tree Services" className="h-16 md:h-20 w-auto object-contain" />
               </div>
-              <h1 className="font-serif text-2xl md:text-3xl font-bold text-primary-foreground text-center md:text-left leading-tight">Certified Tree Service in Surrey, White Rock & the Lower Mainland
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary-foreground text-center md:text-left leading-tight">Certified Tree Service in Surrey, White Rock & the Lower Mainland
 
 
 
@@ -74,7 +74,7 @@ const Index = () => {
 
 
 
-                                                                </h1>
+                                                                </h2>
               <div className="md:hidden">
                 <p className="text-sm text-primary-foreground/90 leading-relaxed text-center">
                   Dangerous Tree Removals • Pruning & Vista Pruning • Hedge Trimming • Tree Planting • Risk Assessments
