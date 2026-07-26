@@ -9,6 +9,9 @@ const Footer = () => {
     { name: "Emergency Tree Service", href: "/emergency-tree-service" },
     { name: "Arborist Surrey", href: "/arborist-surrey" },
     { name: "Tree Pruning Surrey", href: "/tree-pruning-surrey" },
+    { name: "Hedge Trimming Surrey", href: "/hedge-trimming-surrey" },
+    { name: "Lot Clearing Surrey", href: "/lot-clearing-surrey" },
+    { name: "Stump Grinding Surrey", href: "/stump-grinding-surrey" },
     { name: "Get a Quote", href: "/quote" },
   ];
 

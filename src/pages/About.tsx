@@ -5,7 +5,7 @@ import SEO from "@/components/SEO";
 const About = () => {
   return <div className="py-12">
     <SEO
-  title="About Integra Tree Service | Certified Arborists in Surrey & Lower Mainland"
+  title="About Integra Tree Service | Certified Arborists Surrey BC"
   description="Learn about Integra Tree Service, a father-and-son certified arborist team serving Surrey, White Rock, Delta, Langley, and the Lower Mainland."
   canonicalPath="/about"
   />
