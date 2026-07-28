@@ -12,6 +12,9 @@ const Footer = () => {
     { name: "Hedge Trimming Surrey", href: "/hedge-trimming-surrey" },
     { name: "Lot Clearing Surrey", href: "/lot-clearing-surrey" },
     { name: "Stump Grinding Surrey", href: "/stump-grinding-surrey" },
+    { name: "White Rock Tree Service", href: "/tree-service-white-rock" },
+    { name: "Delta Tree Service", href: "/tree-service-delta" },
+    { name: "Langley Tree Service", href: "/tree-service-langley" },
     { name: "Get a Quote", href: "/quote" },
   ];
 
@@ -28,7 +31,7 @@ const Footer = () => {
           <div className="space-y-4">
             <img 
               src="/lovable-uploads/07200f5d-757d-4f85-8683-68ba4c9727e2.png" 
-              alt="Integra Tree Services" 
+              alt="Integra Tree Service" 
               className="h-12 w-auto object-contain"
             />
             <p className="text-primary-foreground/80 text-sm">
@@ -87,7 +90,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm text-primary-foreground/80">
-         <p>&copy; 2024 Integra Tree Services. All rights reserved.</p>
+         <p>&copy; 2026 Integra Tree Service. All rights reserved.</p>
          </div>
 
         <div className="mt-4 text-xs text-primary-foreground/60 text-center space-y-1">

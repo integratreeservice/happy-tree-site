@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-const parallaxBg = "/lovable-uploads/029f8aac-e91a-44b3-af62-2b6df1edee22.png";
+const parallaxBg = "/lovable-uploads/029f8aac-e91a-44b3-af62-2b6df1edee22.jpg";
 const ParallaxSection = () => {
   return <section className="relative h-[50vh] overflow-hidden">
       <div className="absolute inset-0 w-full h-full bg-cover bg-no-repeat" style={{
