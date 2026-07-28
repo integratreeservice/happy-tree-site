@@ -43,7 +43,7 @@ export default function TreeServiceWhiteRock() {
     <main className="min-h-screen bg-white text-gray-900">
       <SEO
         title="Tree Service White Rock & Ocean Park | Integra Tree Service"
-        description="Arborist services in White Rock and Ocean Park — view pruning done right, wind-firm trimming for bluff trees, and removals with bylaw-protected trees flagged first."
+        description="Arborist services in White Rock and Ocean Park — view pruning done right, wind-firm trimming for bluff trees, and bylaw-aware removals. Free quotes."
         canonicalPath="/tree-service-white-rock"
       />
 

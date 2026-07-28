@@ -43,7 +43,7 @@ export default function TreeServiceLangley() {
     <main className="min-h-screen bg-white text-gray-900">
       <SEO
         title="Tree Service Langley | Integra Tree Service"
-        description="Arborist and tree removal for Langley City and Township — acreage specialists, big-tree rigging, fence-line clearing, and tree bylaw rules flagged before any cut."
+        description="Arborist and tree removal for Langley City and Township — acreage specialists, big-tree rigging and fence-line clearing. Free quotes."
         canonicalPath="/tree-service-langley"
       />
 

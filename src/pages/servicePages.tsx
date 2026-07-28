@@ -3,8 +3,8 @@ import ServiceLandingPage from "./ServiceLandingPage";
 export const ArboristSurrey = () => (
   <ServiceLandingPage
     title="Arborist Services in Surrey"
-    metaTitle="Arborist Surrey | Certified Arborist Services | Integra Tree Service"
-    description="Integra Tree Service provides certified arborist services in Surrey, including tree health assessments, pruning advice, risk evaluations, and tree removal recommendations."
+    metaTitle="Certified Arborist Surrey | Integra Tree Service"
+    description="Certified arborist services in Surrey — tree health assessments, pruning advice, risk evaluations, and honest removal recommendations from Integra Tree Service."
     canonicalPath="/arborist-surrey"
     intro="Integra Tree Service provides arborist services in Surrey for homeowners who need professional advice about tree health, safety, pruning, removal, or storm-related risks."
     bullets={[
@@ -30,7 +30,7 @@ export const ArboristSurrey = () => (
 export const TreePruningSurrey = () => (
   <ServiceLandingPage
     title="Tree Pruning in Surrey"
-    metaTitle="Tree Pruning Surrey | Tree Trimming & Pruning | Integra Tree Service"
+    metaTitle="Tree Pruning & Trimming Surrey | Integra Tree Service"
     description="Professional tree pruning and trimming in Surrey. Integra Tree Service helps improve tree health, reduce hazards, manage growth, and maintain your property."
     canonicalPath="/tree-pruning-surrey"
     intro="Integra Tree Service provides professional tree pruning in Surrey to improve tree structure, reduce hazards, protect nearby property, and keep trees healthy."

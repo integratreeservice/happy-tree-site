@@ -21,7 +21,7 @@ const About = () => {
 
         {/* Hero Image Section */}
         <div className="relative h-[60vh] rounded-2xl overflow-hidden mb-16">
-          <img src="/lovable-uploads/67a3c22a-b8bb-4ba7-bba5-6a16b2469c56.png" alt="Professional arborist climbing large tree with safety equipment for tree service work" className="w-full h-full object-cover" />
+          <img src="/lovable-uploads/67a3c22a-b8bb-4ba7-bba5-6a16b2469c56.jpg" alt="Professional arborist climbing large tree with safety equipment for tree service work" className="w-full h-full object-cover" />
           <div className="absolute bottom-8 left-8">
             <div className="bg-white p-3 rounded-xl shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300">
               <img 
