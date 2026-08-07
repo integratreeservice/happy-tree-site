@@ -18,6 +18,8 @@ import StumpGrindingSurrey from "./pages/StumpGrindingSurrey";
 import TreeServiceWhiteRock from "./pages/TreeServiceWhiteRock";
 import TreeServiceDelta from "./pages/TreeServiceDelta";
 import TreeServiceLangley from "./pages/TreeServiceLangley";
+import TreeServiceCoquitlam from "./pages/TreeServiceCoquitlam";
+import TreeServicePortCoquitlam from "./pages/TreeServicePortCoquitlam";
 // import Resources from "./pages/Resources"; // Temporarily hidden - page content incomplete
 
 import Quote from "./pages/Quote";
@@ -61,6 +63,8 @@ const App = () => (
               <Route path="/tree-service-white-rock" element={<TreeServiceWhiteRock />} />
               <Route path="/tree-service-delta" element={<TreeServiceDelta />} />
               <Route path="/tree-service-langley" element={<TreeServiceLangley />} />
+              <Route path="/tree-service-coquitlam" element={<TreeServiceCoquitlam />} />
+              <Route path="/tree-service-port-coquitlam" element={<TreeServicePortCoquitlam />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

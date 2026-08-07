@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://integratreeservice.com/</loc>
-</url>
-<url>
-<loc>https://integratreeservice.com/about</loc>
-</url>
-<url>
-<loc>https://integratreeservice.com/quote</loc>
-</url>
-<url>
-<loc>https://integratreeservice.com/tree-removal-surrey</loc>
-</url>
-<url>
-<loc>https://integratreeservice.com/emergency-tree-service</loc>
-</url>
-<url>
-<loc>https://integratreeservice.com/arborist-surrey</loc>
-</url>
-<url>
-<loc>https://integratreeservice.com/tree-pruning-surrey</loc>
-</url>
-<url>
+  <url>
+    <loc>https://integratreeservice.com/</loc>
+  </url>
+  <url>
+    <loc>https://integratreeservice.com/about</loc>
+    <lastmod>2026-08-07</lastmod>
+  </url>
+  <url>
+    <loc>https://integratreeservice.com/quote</loc>
+  </url>
+  <url>
+    <loc>https://integratreeservice.com/tree-removal-surrey</loc>
+    <lastmod>2026-08-07</lastmod>
+  </url>
+  <url>
+    <loc>https://integratreeservice.com/emergency-tree-service</loc>
+    <lastmod>2026-08-07</lastmod>
+  </url>
+  <url>
+    <loc>https://integratreeservice.com/arborist-surrey</loc>
+  </url>
+  <url>
+    <loc>https://integratreeservice.com/tree-pruning-surrey</loc>
+  </url>
+  <url>
     <loc>https://integratreeservice.com/lot-clearing-surrey</loc>
     <lastmod>2026-07-21</lastmod>
   </url>
@@ -44,5 +47,13 @@
   <url>
     <loc>https://integratreeservice.com/tree-service-langley</loc>
     <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://integratreeservice.com/tree-service-coquitlam</loc>
+    <lastmod>2026-08-07</lastmod>
+  </url>
+  <url>
+    <loc>https://integratreeservice.com/tree-service-port-coquitlam</loc>
+    <lastmod>2026-08-07</lastmod>
   </url>
 </urlset>

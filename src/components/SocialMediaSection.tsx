@@ -36,7 +36,7 @@ const SocialMediaSection = () => {
     {
       name: "Facebook",
       iconImage: "/lovable-uploads/3a2a9b36-96f1-42f9-8158-845c5e97d921.png",
-      image: "/lovable-uploads/7eed26ba-b7ff-4e4f-8135-7793450bc323.png",
+      image: "/lovable-uploads/7eed26ba-b7ff-4e4f-8135-7793450bc323.jpg",
       handle: "Integra Tree Services",
       description: "Customer stories, tips, and community updates",
       link: "https://www.facebook.com/p/Integra-Tree-Service-61579387899613/",
