@@ -7,6 +7,7 @@ import { CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { trackLead } from "@/lib/trackLead";
+import { getStoredGclid } from "@/lib/gclid";
 
 // Validation schema
 const quoteSchema = z.object({
@@ -118,6 +119,7 @@ const HomeQuoteForm = () => {
           service: formData.service,
           phone: formData.phone,
           details: formData.details,
+          gclid: getStoredGclid(),
         }),
       });
 

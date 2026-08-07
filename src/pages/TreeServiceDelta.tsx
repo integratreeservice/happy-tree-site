@@ -43,7 +43,7 @@ export default function TreeServiceDelta() {
     <main className="min-h-screen bg-white text-gray-900">
       <SEO
         title="Tree Service Delta & Tsawwassen | Integra Tree Service"
-        description="Tree removal, wind-firm pruning and storm response in Tsawwassen, Ladner and North Delta — free quotes from a fully insured local crew, tree rules flagged first."
+        description="Tree removal, wind-firm pruning and storm response in Tsawwassen, Ladner and North Delta. Free quotes from a fully insured local crew."
         canonicalPath="/tree-service-delta"
       />
 
