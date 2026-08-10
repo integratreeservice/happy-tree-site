@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     q: "How much does tree removal cost in Surrey?",
-    a: "Every removal is different. Price depends on the tree's height and trunk size, how close it is to your house, fences, or wires, how easy it is to access with equipment, and whether you want the stump ground out afterward. Small, open-access trees cost far less than large trees that have to be dismantled piece by piece over a roof. We provide free written estimates so you know the exact price before any work begins.",
+    a: "Every removal is different. Price depends on the tree's height and trunk size, how close it is to your house, fences, or wires, and how easy it is to access with equipment. Small, open-access trees cost far less than large trees that have to be dismantled piece by piece over a roof. We provide free written estimates so you know the exact price before any work begins.",
   },
   {
     q: "Can you remove a tree that's close to my house or fence?",
@@ -29,8 +29,8 @@ const faqs = [
     a: "Most residential removals in Surrey are completed in a single visit. A small tree in an open yard may take an hour or two, while a large tree beside a house that has to come down in sections can take most of a day. We'll give you a realistic time estimate along with your written quote.",
   },
   {
-    q: "Should I remove the stump too?",
-    a: "That's up to you. Leaving the stump is cheaper, but stumps can regrow suckers, attract insects, and get in the way of lawns, fences, or new planting. Many homeowners have the stump ground out at the same time as the removal since the equipment is already on site. See our stump grinding service for details.",
+    q: "What happens to the stump?",
+    a: "We cut the stump as low to the ground as practical during the removal. Stump grinding itself isn't a service we offer, so if you want the stump completely gone, a dedicated stump-grinding company can grind it out afterward — and we're happy to point you in the right direction.",
   },
 ];
 
@@ -108,7 +108,7 @@ const TreeRemovalSurrey = () => {
             How our tree removal process works
           </h2>
           <p>
-            Every job starts with a free on-site assessment. A certified arborist looks at the tree's condition, what's around it, and how it can come down safely, then gives you a clear written estimate — no surprises. On removal day, trees in open areas are felled and processed, while trees near homes, fences, sheds, or wires are climbed and dismantled in sections, with each piece rigged and lowered under control. Branches are chipped on site, wood is hauled away, and the area is cleaned before we leave. If you want the stump gone as well, we can add <Link to="/stump-grinding-surrey" className="text-primary underline underline-offset-4">stump grinding</Link> to the same visit.
+            Every job starts with a free on-site assessment. A certified arborist looks at the tree's condition, what's around it, and how it can come down safely, then gives you a clear written estimate — no surprises. On removal day, trees in open areas are felled and processed, while trees near homes, fences, sheds, or wires are climbed and dismantled in sections, with each piece rigged and lowered under control. Branches are chipped on site, wood is hauled away, and the area is cleaned before we leave.
           </p>
 
           <h2 className="font-serif text-3xl font-semibold text-foreground">

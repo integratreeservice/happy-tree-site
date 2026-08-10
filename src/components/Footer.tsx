@@ -11,7 +11,6 @@ const Footer = () => {
     { name: "Tree Pruning Surrey", href: "/tree-pruning-surrey" },
     { name: "Hedge Trimming Surrey", href: "/hedge-trimming-surrey" },
     { name: "Lot Clearing Surrey", href: "/lot-clearing-surrey" },
-    { name: "Stump Grinding Surrey", href: "/stump-grinding-surrey" },
     { name: "White Rock Tree Service", href: "/tree-service-white-rock" },
     { name: "Delta Tree Service", href: "/tree-service-delta" },
     { name: "Langley Tree Service", href: "/tree-service-langley" },

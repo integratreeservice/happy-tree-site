@@ -19,7 +19,7 @@ const included = [
   "Acreage and multi-tree pruning, priced per visit",
   "Fence-line, paddock and driveway clearing",
   "Hedge and windbreak trimming",
-  "Stump grinding after removal",
+  "Full cleanup with wood chipped and hauled away",
   "City vs Township tree rules flagged first",
 ];
 
@@ -27,7 +27,7 @@ const steps = [
   { t: "Free site visit", d: "We walk the whole property — acreage welcome — and tell you which Langley bylaw applies to your address and which trees it may protect." },
   { t: "Clear written quote", d: "Multi-tree work is priced for one mobilization, so the per-tree cost drops as the list grows. One written number, disposal included." },
   { t: "Rig, drop, process", d: "Big conifers come down in sections, lowered on lines — not felled and hoped for. Wood bucked for firewood or hauled away, your call." },
-  { t: "Final walkthrough", d: "You inspect the trees, the stumps and the cleanup with us before we call it done." },
+  { t: "Final walkthrough", d: "You inspect the trees and the cleanup with us before we call it done." },
 ];
 
 const faqs = [

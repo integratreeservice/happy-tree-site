@@ -19,7 +19,7 @@ const Quote = () => {
   return <div className="py-12">
   <SEO
     title="Free Tree Service Estimate | Integra Tree Service"
-    description="Request a free estimate from Integra Tree Service for tree removal, pruning, hedge trimming, or stump grinding in Surrey and the Lower Mainland."
+    description="Request a free estimate from Integra Tree Service for tree removal, pruning, hedge trimming, or lot clearing in Surrey and the Lower Mainland."
     canonicalPath="/quote"
   />
       <div className="container">

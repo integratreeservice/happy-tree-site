@@ -114,14 +114,14 @@ const ServiceLandingPage = ({
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" asChild>
+            <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-button" asChild>
               <a href="tel:604-968-9997">
                 <Phone className="h-4 w-4 mr-2" />
                 604-968-9997
               </a>
             </Button>
 
-            <Button variant="outline" size="lg" asChild>
+            <Button size="lg" className="bg-success text-success-foreground hover:bg-success/90 shadow-button" asChild>
               <Link to="/quote">Request a Free Estimate</Link>
             </Button>
           </div>

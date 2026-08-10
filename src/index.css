@@ -26,7 +26,7 @@
 
     /* Warm Sand Backgrounds */
     --muted: 38 19% 91%; /* Warm Sand #EDE6D6 */
-    --muted-foreground: 0 0% 45%;
+    --muted-foreground: 30 6% 38%; /* Warm gray for readable secondary text */
 
     --accent: 157 51% 24%; /* Forest Green */
     --accent-foreground: 38 19% 95%;
@@ -34,7 +34,7 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 38 19% 95%;
 
-    --border: 38 19% 85%;
+    --border: 38 20% 84%;
     --input: 38 19% 88%;
     --ring: 157 58% 13%; /* Pine Green */
 
@@ -43,20 +43,20 @@
     /* Hero & Section Backgrounds */
     --hero-background: 38 19% 95%;
     --section-background: 38 19% 91%;
-    
+
     /* Success & Trust Colors */
     --success: 142 76% 36%;
     --success-foreground: 38 19% 95%;
-    
+
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(157 58% 13%), hsl(157 51% 24%));
     --gradient-hero: linear-gradient(135deg, hsl(38 19% 95%), hsl(38 19% 91%));
-    
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(157 58% 13% / 0.1);
-    --shadow-card: 0 8px 30px -8px hsl(157 58% 13% / 0.15);
-    --shadow-button: 0 4px 12px -2px hsl(157 58% 13% / 0.2);
-    
+
+    /* Shadows - warm, soft depth */
+    --shadow-soft: 0 6px 24px -6px hsl(157 58% 13% / 0.12);
+    --shadow-card: 0 12px 40px -12px hsl(157 58% 13% / 0.18);
+    --shadow-button: 0 6px 16px -4px hsl(157 58% 13% / 0.28);
+
     /* Parallax Effects */
     --parallax-transform: translateY(var(--parallax-offset, 0));
   }
@@ -107,6 +107,75 @@
 
   body {
     @apply bg-background text-foreground;
+    /* Subtle warm paper grain + soft light from above — the "home-y" layer */
+    background-image:
+      radial-gradient(1200px 500px at 50% -100px, hsl(38 30% 98% / 0.9), transparent 70%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.032'/%3E%3C/svg%3E");
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Serif display type carries the family-business character */
+  h1,
+  h2,
+  h3 {
+    @apply font-serif;
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /*
+   * CTA rescue: hero buttons built as white-outline ("border-white text-white")
+   * were unreadable wherever the background behind them was light, and only
+   * became legible on hover. They now render as solid, always-visible green.
+   * Applies to the city/service page hero "Request a free quote" buttons.
+   */
+  .border-white.text-white {
+    background-color: hsl(var(--success));
+    border-color: hsl(var(--success));
+    color: hsl(var(--success-foreground));
+    box-shadow: var(--shadow-button);
+  }
+
+  .border-white.text-white:hover {
+    background-color: hsl(142 76% 30%);
+    border-color: hsl(142 76% 30%);
+    color: hsl(var(--success-foreground));
+  }
+}
+
+@layer base {
+  /* Gentle, consistent motion on interactive elements */
+  a,
+  button {
+    transition:
+      color 150ms ease,
+      background-color 150ms ease,
+      border-color 150ms ease,
+      box-shadow 150ms ease,
+      opacity 150ms ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -116,7 +185,7 @@
     height: 60vh;
     overflow: hidden;
   }
-  
+
   .parallax-bg {
     position: absolute;
     top: -20%;
@@ -129,7 +198,7 @@
     background-size: cover;
     will-change: transform;
   }
-  
+
   .parallax-content {
     position: relative;
     z-index: 10;
@@ -138,7 +207,7 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   @media (prefers-reduced-motion: reduce) {
     .parallax-bg {
       background-attachment: scroll;

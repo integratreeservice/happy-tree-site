@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: "Can you just make it safe now and finish the cleanup later?",
-    a: "Yes, and it's often the smart approach. In an emergency, the first priority is removing the danger — getting the weight off your roof, clearing your driveway, or taking down the cracked limb. Full cleanup, wood removal, and stump grinding can be scheduled for a follow-up visit once the urgent hazard is gone, which can also help spread out the cost.",
+    a: "Yes, and it's often the smart approach. In an emergency, the first priority is removing the danger — getting the weight off your roof, clearing your driveway, or taking down the cracked limb. Full cleanup and wood removal can be scheduled for a follow-up visit once the urgent hazard is gone, which can also help spread out the cost.",
   },
 ];
 

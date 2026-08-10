@@ -19,7 +19,7 @@ const included = [
   "Cedar hedge trimming and restoration",
   "Cottonwood and fast-growth management",
   "Structural pruning and crown care",
-  "Stump grinding after removal",
+  "Full cleanup with wood chipped and hauled away",
   "PoCo tree rules flagged before any cut",
 ];
 
