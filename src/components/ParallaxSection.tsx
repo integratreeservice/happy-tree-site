@@ -2,14 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 const parallaxBg = "/lovable-uploads/029f8aac-e91a-44b3-af62-2b6df1edee22.jpg";
 const ParallaxSection = () => {
-  return <section className="relative h-[50vh] overflow-hidden">
+  return <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden py-16 md:py-24">
       <div className="absolute inset-0 w-full h-full bg-cover bg-no-repeat" style={{
       backgroundImage: `url("${parallaxBg}")`,
       backgroundPosition: 'center 10%',
       backgroundSize: 'cover'
     }} />
       
-      <div className="relative z-10 h-full flex items-center justify-center">
+      <div className="relative z-10 w-full">
         <div className="container text-center">
           <div className="max-w-2xl mx-auto space-y-8">
             {/* Logo */}

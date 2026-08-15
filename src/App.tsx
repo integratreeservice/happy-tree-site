@@ -20,6 +20,8 @@ import TreeServiceLangley from "./pages/TreeServiceLangley";
 import TreeServiceCoquitlam from "./pages/TreeServiceCoquitlam";
 import TreeServicePortCoquitlam from "./pages/TreeServicePortCoquitlam";
 import TreeServiceSurrey from "./pages/TreeServiceSurrey";
+import TreeServiceSouthSurrey from "./pages/TreeServiceSouthSurrey";
+import TreeServiceTsawwassen from "./pages/TreeServiceTsawwassen";
 // import Resources from "./pages/Resources"; // Temporarily hidden - page content incomplete
 
 import Quote from "./pages/Quote";
@@ -65,6 +67,8 @@ const App = () => (
               <Route path="/tree-service-coquitlam" element={<TreeServiceCoquitlam />} />
               <Route path="/tree-service-port-coquitlam" element={<TreeServicePortCoquitlam />} />
               <Route path="/tree-service-surrey" element={<TreeServiceSurrey />} />
+              <Route path="/tree-service-south-surrey" element={<TreeServiceSouthSurrey />} />
+              <Route path="/tree-service-tsawwassen" element={<TreeServiceTsawwassen />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
