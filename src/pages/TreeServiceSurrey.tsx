@@ -53,7 +53,7 @@ export default function TreeServiceSurrey() {
     <main className="min-h-screen bg-white text-gray-900">
       <SEO
         title="Tree Service Surrey BC | Integra Tree Service"
-        description="Surrey-based tree removal, pruning, hedge trimming and arborist services — our home city, our fastest response. Free written quotes from a certified, insured local crew."
+        description="Tree removal, pruning, hedge trimming and arborist services in Surrey — our home city, our fastest response. Free written quotes, certified and insured."
         canonicalPath="/tree-service-surrey"
       />
       <script

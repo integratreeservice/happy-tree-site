@@ -17,9 +17,18 @@ const Footer = () => {
     { name: "Get a Quote", href: "/quote" },
   ];
 
+  // Every service area now links to its own city page. This gives South Surrey
+  // and Tsawwassen their first internal links (they were orphan pages) and puts a
+  // sitewide link on every other city page.
   const serviceAreas = [
-    "Surrey", "South Surrey", "White Rock", "Delta", "Tsawwassen",
-    "Langley", "Coquitlam", "Port Coquitlam"
+    { name: "Surrey", href: "/tree-service-surrey" },
+    { name: "South Surrey", href: "/tree-service-south-surrey" },
+    { name: "White Rock", href: "/tree-service-white-rock" },
+    { name: "Delta", href: "/tree-service-delta" },
+    { name: "Tsawwassen", href: "/tree-service-tsawwassen" },
+    { name: "Langley", href: "/tree-service-langley" },
+    { name: "Coquitlam", href: "/tree-service-coquitlam" },
+    { name: "Port Coquitlam", href: "/tree-service-port-coquitlam" },
   ];
 
   return (
@@ -82,7 +91,13 @@ const Footer = () => {
             <h3 className="font-semibold text-lg">Service Areas</h3>
             <div className="grid grid-cols-2 gap-1 text-sm text-primary-foreground/80">
               {serviceAreas.map((area) => (
-                <span key={area}>{area}</span>
+                <Link
+                  key={area.name}
+                  to={area.href}
+                  className="hover:text-primary-foreground transition-colors"
+                >
+                  {area.name}
+                </Link>
               ))}
             </div>
           </div>
